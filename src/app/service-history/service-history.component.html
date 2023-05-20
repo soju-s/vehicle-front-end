@@ -1,0 +1,39 @@
+<!-- navbar -->
+
+<nav class="navbar ">
+    <div class="container-fluid ms-4">
+      <a class="navbar-brand" routerLink="/home">
+        <i class="fa-solid fa-arrow-left text-white"></i>
+      
+      </a>
+      <span style="margin-right: 840px;" id="wheels" class="text-white  fs-1 ">  Wheels Doc <i class="fa-solid fa-wrench"></i></span>
+
+    </div>
+    
+  </nav>
+
+  <div *ngIf="historyDetails.length!=0" style=" margin-top: 170px; margin-bottom: 200px;" class="container">
+    <div class="text-center">
+        <h1>Service History</h1>
+
+     <div style="margin-left: 400px;" class="text-center mt-5">
+            <div *ngFor="let item of historyDetails" class="card text-center mb-5" style="width: 500px; height: 300px;">
+                <div class="card-body ">
+                  <h5 class="card-title">Name of Service: {{item.services}}</h5>
+                  <h5 class="card-title  ">Vehicle Owners Name: {{item.ownersname}} </h5>
+                  <h5 class="card-title  ">Address : {{item.address}} </h5>
+                  <h5 class="card-title  ">Contact : {{item.contactnumber}} </h5>
+                  <h5 class="card-title  ">Payment Selected : {{item.paymentstatus}} </h5>
+                  <h5 class="card-title  ">Amount : {{item.price}} </h5>
+                  <h5 class="card-title  ">Vehicle Pickup Date : {{item.pickupdate}} </h5>
+                  
+                  
+                </div>
+              </div>
+     </div>
+    </div>
+  </div>
+
+  <div *ngIf="historyDetails.length==0" style="width: 100%; height: 90vh; display: flex; justify-content: center; align-items: center;" class="text-center">
+    <h1>No Item To Display</h1>
+  </div>

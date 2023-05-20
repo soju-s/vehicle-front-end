@@ -1,0 +1,65 @@
+<!-- navbar -->
+
+<nav class="navbar ">
+  <div class="container-fluid ms-4">
+    <a class="navbar-brand" >
+      <img  src="https://i.pinimg.com/originals/ef/19/63/ef1963550bd12b567e853a36ff1c5078.png" alt="Logo" width="70" height="70" class="d-inline-block align-text-center">
+    <span style="margin-left: 710px;" id="wheels" class="text-white  fs-1 text-center">  Wheels Doc <i class="fa-solid fa-wrench"></i></span>
+    </a>
+  </div>
+  
+</nav>
+
+<!-- content -->
+<h2 style="margin-top: 120px;" class="text-center">PAYMENT</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <div class="text-center">
+        <div class="text-center border p-2" *ngFor="let booked of allBookedDetails" style="text-align: justify;" >
+          <h5> Vehicle Owners Name : <span style="font-weight: 600;" class="fs-5 mt-3">{{booked.ownersname}} </span> </h5>
+          <h5> Service Type : <span style="font-weight: 600;" class="fs-5 mt-3">{{booked.services}} </span> </h5>
+          <h5> Contact Number : <span style="font-weight: 600;" class="fs-5 mt-3">{{booked.contactnumber}} </span> </h5>
+          <h5> Address : <span style="font-weight: 600;" class="fs-5 mt-3">{{booked.address}} </span> </h5>
+          <h5> Pick up Date : <span style="font-weight: 600;" class="fs-5 mt-3">{{booked.pickupdate}} </span> </h5>
+         
+          <hr>
+          <h4 class="text-primary">Amount : $ {{booked.price}} </h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+</div>
+
+<div *ngIf="thankYou" style="height: 300px;" class="container">
+  <div class="row text-center">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4 d-grid mt-3">
+    <div>
+        <ngx-paypal [config]="payPalConfig"></ngx-paypal> 
+    </div>
+    <button (click)="payLaterButtonClicked()" class="btn btn-primary fs-5">Pay Later<div *ngIf="payLaterSpinner" class="spinner-border spinner-border-sm" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div></button>
+    </div>
+    <div class="col-lg-4 "></div>
+  </div>
+</div>
+
+
+<div style="height: 300px;" *ngIf="!thankYou" class="container text-center">
+  <header class="site-header" id="header">
+        <h1 class="site-header__title" data-lead-id="site-header-title">THANK YOU!</h1>
+    </header>
+
+    <div class="main-content">
+        <i class="fa fa-check main-content__checkmark" id="checkmark"></i>
+        <p class="main-content__body fs-5" data-lead-id="main-content-body">Thanks a bunch for playcing the service on Wheels Doc.The Vehicle will be delivered to the stated address after the service is done.You can also pay the amount during delivery of the vehicle.</p>
+    </div>
+</div>
+
+
+  

@@ -1,0 +1,13 @@
+.navbar{
+    background-color: #282d32;
+    opacity: 0.9;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    height: 100px;
+    top: 0;
+
+  }
+  #wheels{
+    font-family: 'Dancing Script', cursive;
+  }

@@ -1,0 +1,146 @@
+
+<!-- navbar -->
+<nav  class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+      <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" class="navbar-brand" ><img style="border-radius: 50%;" src="https://i.pinimg.com/originals/ef/19/63/ef1963550bd12b567e853a36ff1c5078.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-center ms-5">
+        </a>
+        <span style="margin-left: 750px;" id="wheel" class="text-white  fs-3">  Wheels Doc <i class="fa-solid fa-wrench"></i></span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div style="margin-left: 650px;" class="collapse navbar-collapse " id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          
+          <li class="nav-item dropdown ">
+            <a  class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i  class="fa-solid fa-user fs-3 "></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><button (click)="logOutButtonClicked()" class="dropdown-item">Log Out <i class="fa-solid fa-right-from-bracket"></i></button></li>
+              
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<!-- content -->
+
+<div style="margin-top: 130px; margin-bottom: 520px;" class="container text-center">
+    <h1>Welcome administrative User</h1>
+    <hr>
+<div class="mt-5">
+    
+        <h3>Service Requests</h3>
+</div>
+
+<!-- search box -->
+<div class="container d-flex justify-content-center mt-5">
+<input (keyup)="search($event)" style="max-width: 800px; border: 1px green solid; "  placeholder="Search Name" class="fs-5 form-control  " type="text">
+</div>
+
+<!-- no items mesage -->
+<div *ngIf="allPaymentItems.length==0" class="container mt-5 text-center border p-3">
+<h1>No Service Requests</h1>
+</div>
+
+    <!-- card -->
+<div class="container mt-5 ">
+    
+        <div class="row ">
+
+            <div *ngFor="let items of allPaymentItems | pipeFilter : searchTerm : 'ownersname' "  class="text-center col-lg-4 d-flex justify-content-center mb-5 mt-5">
+                <div class="card ">
+                    <div class="header fs-4">Name : {{items.ownersname}} </div>
+                    <div class="body">
+                      <div class="fs-5">Service : {{items.services}} </div>
+                      <div class="fs-5">Vehicle Location : {{items.address}}</div>
+                      <div class="fs-5">Contact Number : {{items.contactnumber}} </div>
+                      <div class="fs-5">Expected Pick Up Date : {{items.pickupdate}} </div>
+                      <div class="fs-5">Expected Delivery Date : {{items.deliverydate}} </div>
+                      <div [ngStyle]="{'color':items.paymentstatus=='Paid'?'green':'red'} " class="fs-5">Payment Status : {{items.paymentstatus}} </div>
+
+                      <!-- button -->
+                      <div>
+                        <button (click)="sendDriverButonClicked(items._id,items)" class="btn btn-primary mt-3 mb-3">Send Driver and Start Servicing </button>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+</div>
+
+
+<hr>
+
+
+<div class="text-center mt-5">
+    <h3>Pending Service</h3>
+</div>
+
+<!-- no items mesage -->
+<div *ngIf="onServiceItems.length==0" class="container mt-5 text-center border p-3">
+  <h1>No Pending Service </h1>
+  </div>
+
+    <!-- card -->
+    <div class="container mt-5 ">
+    
+      <div class="row ">
+
+          <div *ngFor="let item of onServiceItems"  class="text-center col-lg-4 d-flex justify-content-center mb-5 mt-5">
+              <div class="card ">
+                  <div class="header fs-4">Name : {{item.ownersname}} </div>
+                  <div class="body">
+                    <div class="fs-5">Service : {{item.services}} </div>
+                    <div class="fs-5">Vehicle Location : {{item.address}}</div>
+                    <div class="fs-5">Contact Number : {{item.contactnumber}} </div>
+                    <div class="fs-5">Expected Pick Up Date : {{item.pickupdate}} </div>
+                    <div class="fs-5">Expected Delivery Date : {{item.deliverydate}} </div>
+                    <div [ngStyle]="{'color':item.paymentstatus=='Paid'?'green':'red'} " class="fs-5">Payment Status : {{item.paymentstatus}} </div>
+
+                    <!-- button -->
+                    <div>
+                      <button (click)="finishButtonCLicked(item._id)" class="btn btn-primary mt-3 mb-3">Finish and Return Vehicle</button>
+                    </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+</div>
+
+
+
+<hr>
+
+<div class="text-center mt-5">
+    <h3>Wheels Doc Services</h3>
+</div> 
+
+<div class="container mt-5">
+  
+    <div class="border rounded fs-5 p-2">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name of Service</th>
+      <th>Old Rate</th>
+      <th>New Rate</th>
+      <th>Save</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let service of allServices">
+      <td>{{service.title}} </td>
+      <td>{{service.price}} </td>
+      <td><div style="display: flex; justify-content: center;"><input #newPrice style="max-width: 70px; " class="form-control" placeholder="$" type="number"></div> </td>
+      <td><button (click)="saveButtonClicked(service._id,newPrice)" class="btn btn-primary">Save</button> </td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+  
+</div>
+
+</div>

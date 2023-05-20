@@ -1,0 +1,307 @@
+
+<!-- navbar -->
+<nav *ngIf="!logoutScreenValue" class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+      <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" class="navbar-brand" ><img style="border-radius: 50%;" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Logo" width="70" height="70" class="d-inline-block align-text-center ms-5">
+        </a>
+        <span style="margin-left: 750px;" id="wheel" class="text-white  fs-3">  Wheels Doc <i class="fa-solid fa-wrench"></i></span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div style="margin-left: 650px;" class="collapse navbar-collapse " id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          
+          <li class="nav-item dropdown ">
+            <a  class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i  class="fa-solid fa-user fs-3 "></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><button (click)="logOutButtonClicked()" class="dropdown-item">Log Out <i class="fa-solid fa-right-from-bracket"></i></button></li>
+              
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- logout content -->
+
+  <div *ngIf="logoutScreenValue" style="width: 100%; height: 80vh; display: flex; justify-content: center; align-items: center;" class="container">
+    <div class=" text-center p-2">
+       <h3 *ngIf="!pleaseWait">Do you Want to Log Out?</h3>
+       <h3 *ngIf="pleaseWait">Please wait... </h3>
+       <button *ngIf="!pleaseWait" (click)="logOut()" class="btn btn-danger">Yes</button>
+       <button *ngIf="!pleaseWait" (click)="noLogOut()" class="btn btn-success ms-5">No</button>
+     
+       <!-- delete success msg -->
+       
+    </div>
+   </div>
+
+  <!-- account delete content -->
+
+
+
+
+
+  <!-- welcome -->
+
+  <h1 *ngIf="!logoutScreenValue" style="margin-top: 200px;" class="text-center ">Welcome <span style="font-weight: 600;font-size: larger;">{{localStorageUsername}}</span></h1>
+  
+<div *ngIf="!logoutScreenValue" style="margin-left: 120px;" class="">
+  <div class="row mt-5">
+    <div style="text-align: justify;" class="col-lg-5 fs-5">
+      <!-- contents -->
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae exercitationem cum quam adipisci, veniam, quibusdam blanditiis inventore vero architecto ullam cumque excepturi dolorem eaque nostrum reprehenderit, suscipit earum maiores quis.
+      Eaque qui nulla necessitatibus quibusdam distinctio, vero ullam repellat voluptatem quae quas veritatis quasi sapiente laudantium reiciendis nobis nesciunt quos delectus nihil eos nam dignissimos. Ducimus facere atque alias dolor.
+      Fuga pariatur maxime distinctio eius ullam exercitationem, dolore odit quia quasi recusandae tempora soluta explicabo id hic, doloribus placeat, dolor sit corporis illo dignissimos. Omnis quibusdam ratione et debitis iusto.
+      Aliquid, earum! Voluptatem ipsam, obcaecati, consequuntur aut veritatis, explicabo porro voluptatum voluptas quos quidem mollitia? Magnam repellendus voluptate consequatur, fuga aut at dolorum nisi cumque labore, neque quasi, repellat dolorem!
+      Sapiente, iusto facilis dolores et qui rem, quasi, in explicabo voluptates aspernatur quas? Tenetur laborum, dicta pariatur animi omnis consequatur praesentium, maiores sint officiis reprehenderit quibusdam quisquam voluptates voluptatem autem.
+      Facere repellendus cupiditate delectus non libero fuga aperiam minima culpa eaque error eos, qui consequuntur atque suscipit pariatur maxime excepturi? Est, delectus quod eaque aspernatur nostrum rem dolore ipsam atque?
+      Aliasndi numquam. Vero ut eligendi enim !
+    </div>
+    <div class="col-lg-7">
+      <!-- video -->
+      <video   width="900" class=" "  controls muted>
+        <source  src="https://astonishing-sopapillas-19068a.netlify.app/Automotive%20Service%20Technicians%20and%20Mechanics%20Career%20Video.mp4"  />
+      </video>
+
+      <!-- <div style="margin-top: -25px; height: 100; padding-bottom: calc(56.25%); position:relative; width: 900;"><iframe  allow="autoplay; gyroscope; muted;" allowfullscreen height="100%" referrerpolicy="strict-origin" src="https://www.kapwing.com/e/646235246d900c001d469a7c?;autoplay=0&mute=0" style="border:0; height:100%;  overflow:hidden; position:absolute; width:900" title="Embedded content made on Kapwing" width="900"></iframe></div> -->
+
+      
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+<!-- booking form -->
+<div *ngIf="!logoutScreenValue" style="margin-top: 150px;" class="container ">
+  <div class="row">
+    <div class="col-lg-6">
+      <!-- image -->
+
+      <!-- Gallery -->
+<div class="row">
+  <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+    <img
+      src="https://res.cloudinary.com/jerrick/image/upload/v1650188790/625be1f62ebe0e001fe0d230.jpg"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Boat on Calm Water"
+    />
+
+    <img height="300px"
+      src="https://ds-prod.citroen.in/static-assets/ds-static/s3fs-public/2023-04/1_mobile__.jpg?v5XyoHqW0vYdle1aYHEW6IvjQR89GoZl"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Wintry Mountain Landscape"
+    />
+  </div>
+
+  <div class="col-lg-4 mb-4 mb-lg-0">
+    <img height="300px"
+      src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWVyY2VkZXMlMjBjYXJ8ZW58MHx8MHx8fDA%3D&w=1000&q=80"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Mountains in the Clouds"
+    />
+
+    <img height="130px"
+      src="https://w0.peakpx.com/wallpaper/312/1007/HD-wallpaper-nissan-gtr-bonnet-cars-nissan-gtr-red-cars-nissan-vehicles-engines.jpg"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Boat on Calm Water"
+    />
+  </div>
+
+  <div class="col-lg-4 mb-4 mb-lg-0">
+    <img
+      src="https://www.automoblog.net/wp-content/uploads/2022/09/Bentley-Mulliner-Batur-7-1400x933.jpg"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Waves at Sea"
+    />
+
+    <img height="300px"
+      src="https://i.pinimg.com/originals/ff/0b/30/ff0b303b2d164ed4fd9a552237f9862b.jpg"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Yosemite National Park"
+    />
+  </div>
+</div>
+<!-- Gallery -->
+    </div>
+    <div class="col-lg-6">
+      <h2 class="text-center">Book Your Service</h2>
+
+      <!-- form -->
+      <form (ngSubmit)="bookServiceButtonClicked()" [formGroup]="serviceForm" action="">
+
+      <div class="form-floating ">
+        <input name="serviceOwner" formControlName="serviceOwner" type="text" class="form-control " id="floatingInput" placeholder="Vehicle Owner Name">
+        <label  for="floatingInput">Vehicle Owner Name</label>
+      </div>
+
+      <div *ngIf="serviceForm.get('serviceOwner')?.errors&&serviceForm.get('serviceOwner')?.touched" class="text-danger">Invalid Name</div>
+
+      <select name="serviceType" formControlName="serviceType" style="height: 58px;" class="form-select mt-3" aria-label="Default select example">
+        
+        <option selected disabled hidden value="">Select Services</option>
+         <option *ngFor="let services of allServices" >{{services.title}}</option>
+      </select>
+
+      <div *ngIf="serviceForm.get('serviceType')?.errors&&serviceForm.get('serviceType')?.touched" class="text-danger">Invalid Service</div>
+
+      <div class="form-floating mt-3">
+        <input name="number" formControlName="number" type="number" class="form-control " id="floatingInput" placeholder="Contact Number">
+        <label  for="floatingInput">Contact Number</label>
+      </div>
+
+      <div *ngIf="serviceForm.get('number')?.errors&&serviceForm.get('number')?.touched" class="text-danger">Invalid Number</div>
+
+      <div class="form-floating mt-3">
+        <input name="locationAddress" formControlName="locationAddress" type="text" class="form-control" id="floatingInput" placeholder="Vehicle Location Address">
+        <label class=" " for="floatingInput">Vehicle Location Address</label>
+      </div>
+
+      <div *ngIf="serviceForm.get('locationAddress')?.errors&&serviceForm.get('locationAddress')?.touched" class="text-danger">Invalid Address</div>
+
+      <div class="form-floating mt-3">
+        <input name="pickUpDate" formControlName="pickUpDate" type="date" class="form-control " id="floatingInput" placeholder="preferred Pickup Date">
+        <label for="floatingInput">preferred Pickup Date</label>
+      </div>
+
+      <div *ngIf="serviceForm.get('pickUpDate')?.errors&&serviceForm.get('pickUpDate')?.touched" class="text-danger">Invalid Date</div>
+
+      <div class="form-floating mt-3">
+        <input name="deliveryDate" formControlName="deliveryDate" type="date" class="form-control " id="floatingInput" placeholder="preferred Delivery Date">
+        <label for="floatingInput">preferred Delivery Date</label>
+      </div>
+
+      <div *ngIf="serviceForm.get('deliveryDate')?.errors&&serviceForm.get('deliveryDate')?.touched" class="text-danger">Invalid Date</div>
+
+      <!-- button -->
+<div *ngIf="termsandConditions" class="text-center mt-3">
+  
+        <button [disabled]="serviceForm.invalid"  type="submit" class="btn btn-dark fs-4">Book Service</button>
+  
+</div>
+      </form>  
+
+
+      <div *ngIf="!termsandConditions" class="text-center mt-5">
+        <div class="tacbox">
+          <input (click)="checkboxClicked()"   value="clicked" id="checkbox" type="checkbox" />
+          <label for="checkbox"> I agree to these <a >Terms and Conditions</a>.</label>
+        </div>
+
+        <button [disabled]="proceedButton==false" (click)="bookButtonClicked()" class="btn btn-success my-3">Confirm Booking<div *ngIf="confirmBookingSpinner" class="spinner-border spinner-border-sm" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div></button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- content -->
+    <div *ngIf="!logoutScreenValue" style="margin-bottom: 120px; margin-top: 100px;" class="container  " >
+      <div>
+        <h1 class="text-center">Other Benifits</h1>
+      </div>
+      <div style="width: 100%; margin-left: 150px;" class="row mt-5 ">
+          
+          <div  class="col-lg-6 display: flex; justify-content: center;">
+              
+        <!-- service history -->
+  
+        
+          <div  style="border-radius: 50%;" class="card btn" style="width: 18rem;">
+            <h1 style="text-decoration: none;" class="card-text text-center">Service History</h1>
+            <a style="text-decoration: none;" routerLink="/service-history">
+            <img style="border-radius: 50%;" width="100%" height="250px" src="https://pictures.dealer.com/m/mazdaofnewbern/1802/78592767fd92338d721d38b3d2d25d3fx.jpg?impolicy=downsize&w=568" class="card-img-top" alt="profile image">
+            <div class="">
+              
+            </div>
+          </a>
+          </div>
+       
+        
+          </div>
+
+          <div class="col-lg-6 display: flex; justify-content: center;">
+  
+        <!-- service status -->
+  
+        
+        <div  style="border-radius: 50%;" class="card btn" style="width: 18rem;">
+          <h1 style="text-decoration: none;" class="card-text text-center">Service Status</h1>
+          <a style="text-decoration: none;" routerLink="/service-status">
+          <img style="border-radius: 50%;" width="100%" height="250px" src="https://carservicinghavant.co.uk/static/img/blog/blog-11.jpg" class="card-img-top" alt="profile image">
+          <div class="">
+            
+          </div>
+        </a>
+        </div>
+
+          </div>
+      </div>
+  </div>
+  
+  
+
+
+
+<!-- offcamvas -->
+
+<div class="offcanvas offcanvas-start text-center" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header text-center">
+    
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <h3 style="text-decoration: none; " class="card-text text-center mt-3">Edit Profile</h3>
+    
+    <div style="margin-left: 100px;" class="text-center">
+      <div   class="card btn" style="width: 10rem; height: 9rem; vertical-align: middle;">
+        
+        <a style="text-decoration: none;" routerLink="/edit-profile">
+        <img style="border-radius: 50%;" width="100%" height="120px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/New_user_icon-01.svg/1200px-New_user_icon-01.svg.png" class="card-img-top" alt="profile image">
+       
+      </a>
+      </div>
+    </div>
+  <hr>
+
+      <h3 style="text-decoration: none; " class="card-text text-center mt-3">Service History</h3>
+      <div style="margin-left: 100px;" class="text-center">
+        <div   class="card btn" style="width: 10rem; height: 9rem; vertical-align: middle;">
+          
+          <a style="text-decoration: none;" routerLink="/service-history">
+          <img style="border-radius: 50%;" width="100%" height="120px" src="https://pictures.dealer.com/m/mazdaofnewbern/1802/78592767fd92338d721d38b3d2d25d3fx.jpg?impolicy=downsize&w=568" class="card-img-top" alt="profile image">
+         
+        </a>
+        </div>
+      </div>
+      <hr>
+      <h3 style="text-decoration: none;" class="card-text text-center mt-3">Service Status</h3>
+
+     <div style="margin-left: 100px;">
+        <div   class="card btn" style="width: 10rem; height: 9rem;">
+         
+          <a style="text-decoration: none;" routerLink="/service-status">
+          <img style="border-radius: 50%;" width="100%" height="120px" src="https://carservicinghavant.co.uk/static/img/blog/blog-11.jpg" class="card-img-top" alt="profile image">
+         
+        </a>
+        </div>
+     </div>  
+
+  </div>
+
+  
+</div>
+
+
+

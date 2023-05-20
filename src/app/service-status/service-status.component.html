@@ -1,0 +1,82 @@
+<!-- navbar -->
+
+<nav class="navbar ">
+    <div class="container-fluid ms-4">
+      <a class="navbar-brand" routerLink="/home">
+        <i class="fa-solid fa-arrow-left text-white"></i>
+      
+      </a>
+      <span style="margin-right: 840px;" id="wheels" class="text-white  fs-1 ">  Wheels Doc <i class="fa-solid fa-wrench"></i></span>
+
+    </div>
+    
+  </nav>
+<!-- content -->
+<div style="margin-top: 150px; margin-bottom: 550px;" class="container text-center">
+
+    <div *ngIf="allPaymentItems.length!=0 || allPendingItems.length!=0">
+
+        <h1>Service Status</h1>
+
+    </div>
+
+    <div *ngIf="allPaymentItems.length==0 && allPendingItems.length==0" style="margin-top: 200px;">
+        <h1>No Service Status </h1>
+    </div>
+    <!-- payment -->
+
+    <div class="container mt-5 text-center ">
+        <div *ngIf="allPaymentItems.length!=0">
+            <div *ngFor="let items of allPaymentItems">
+                <div style="border: 1px blue solid;" class=" mt-5 mb-5 p-2 rounded">
+                    <div class="bg-primary text-white p-3 rounded">
+                        <h3>The request for your service of the vehicle is registered </h3>
+                        <h4>Please wait we will update you soon. </h4>
+                    </div>
+                    <hr>
+                    <div class="header fs-4">Name : {{items.ownersname}} </div>
+                    <div class="body">
+                        <div class="fs-5">Service : {{items.services}} </div>
+                        <div class="fs-5">Vehicle Location : {{items.address}}</div>
+                        <div class="fs-5">Contact Number : {{items.contactnumber}} </div>
+                        <div class="fs-5">Expected Pick Up Date : {{items.pickupdate}} </div>
+                        <div class="fs-5">Amount : {{items.price}} </div>
+                        <div [ngStyle]="{'color':items.paymentstatus=='Paid'?'green':'red'} " class="fs-5">Payment
+                            Status : {{items.paymentstatus}} </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- pending -->
+
+
+<div class="container mt-5 text-center">
+<div *ngFor="let item of allPendingItems">
+    <div style="border: 1px green solid; " class=" mt-5 mb-5 p-2 rounded">
+        <div  class="bg-success text-white p-3 rounded">
+            <h3>Wheels Doc have taken Your service</h3>
+            <h4>Our driver will collect the vehicle please be ready with copy of vehicle documents and key. Please remove any valuable from the vehicle thank you.</h4>
+        </div>
+        <hr>
+            <div class="header fs-4">Name : {{item.ownersname}} </div>
+                <div class="body">
+                    <div class="fs-5">Service : {{item.services}} </div>
+                    <div class="fs-5">Vehicle Location : {{item.address}}</div>
+                    <div class="fs-5">Contact Number : {{item.contactnumber}} </div>
+                    <div class="fs-5">Expected Pick Up Date : {{item.pickupdate}} </div>
+                    <div class="fs-5">Amount : {{item.price}} </div>
+                    <div [ngStyle]="{'color':item.paymentstatus=='Paid'?'green':'red'} " class="fs-5">Payment Status : {{item.paymentstatus}} </div>
+                </div>
+    
+    </div>
+
+</div>
+
+</div>
+
+</div>

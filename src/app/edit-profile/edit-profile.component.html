@@ -1,0 +1,66 @@
+<!-- navbar -->
+
+<nav class="navbar ">
+    <div class="container-fluid ms-4">
+        <a class="navbar-brand" routerLink="/home">
+            <i class="fa-solid fa-arrow-left text-white"></i>
+
+        </a>
+        <span style="margin-right: 820px;" id="wheels" class="text-white  fs-1 "> Wheels Doc <i
+                class="fa-solid fa-wrench"></i></span>
+
+    </div>
+
+</nav>
+
+<!-- content -->
+
+<h1 style="margin-top: 120px;" class="text-center">Profile Edit</h1>
+
+<div style="margin-bottom: 600px;" class="container">
+
+    <!-- confirm password -->
+
+    <div style="margin-top: 120px;" *ngIf="showConfirmPassword" class="d-flex justify-content-center ">
+        <input #confirmPassword style="max-width: 500px;" class="form-control" placeholder="Enter Your Password "
+            type="password">
+        <button (click)="confirmButtonCLicked(confirmPassword)" class="btn btn-primary ms-3">Confirm</button>
+    </div>
+
+    <div  class="mt-5 p-2" *ngIf="!showConfirmPassword">
+        <div class="d-flex justify-content-center align-items-center">
+
+            <label class="fs-5"> Username : </label>
+            <input #NewUsername style="max-width: 500px;" name="username" [value]="loginDetails.loginUserName.username" class="form-control ms-2 fs-5" type="text">
+
+        </div>
+        <div class="d-flex justify-content-center align-items-center mt-3">
+
+            <label class="fs-5" for="email">Email ID   : </label>
+            <input #NewEmail style="max-width: 500px;" name="email" [value]="loginDetails.loginUserName.email" class="form-control ms-4 fs-5" type="email">
+
+        </div>
+        <div class="d-flex justify-content-center align-items-center mt-3">
+
+            <label class="fs-5" for="password">Password : </label>
+            <input #NewPassword style="max-width: 500px;" name="password" [value]="loginDetails.loginUserName.password" class="form-control ms-3 fs-5" type="password">
+
+        </div>
+<div class="text-center">
+    
+            <button (click)="updateButtonClicked(NewUsername,NewEmail,NewPassword)" class="btn btn-primary fs-5 mt-4"> Update</button>
+</div>
+
+    </div>
+
+
+    <!-- profile edited sucessfully  -->
+    <div *ngIf="profileEditedSuccess">
+        <h1 class="text-success text-center">Profile edited successfully</h1>
+    </div>
+
+    <!-- error -->
+    <div *ngIf="errorMessage">
+        <h1 class="text-danger text-center">Username Already Exists</h1>
+    </div>
+</div>

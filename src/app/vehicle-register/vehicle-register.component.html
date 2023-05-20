@@ -1,0 +1,76 @@
+
+<!-- navbar -->
+
+<nav class="navbar ">
+    <div class="container-fluid ms-4">
+      <a class="navbar-brand" >
+        <img  src="https://i.pinimg.com/originals/ef/19/63/ef1963550bd12b567e853a36ff1c5078.png" alt="Logo" width="70" height="70" class="d-inline-block align-text-center">
+      <span style="margin-left: 710px;" id="wheels" class="text-white  fs-1 text-center">  Wheels Doc <i class="fa-solid fa-wrench"></i></span>
+      </a>
+    </div>
+    
+  </nav>
+
+<!-- heading -->
+
+<div style="margin-top: 100px;" class="text-center">
+    <h1>Create Your Account</h1>
+    
+</div>
+
+<!-- form -->
+
+<div style="height: 50vh;" class="mb-5 ">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4"></div> 
+            <div id="registerCard" style="border-radius: 5%;" class="col-lg-4 bg-dark p-3 text-center">
+              <img   width="80px" src="https://cdn-icons-png.flaticon.com/128/3177/3177440.png" alt="">
+                <form (ngSubmit)="registerButtonClicked()" [formGroup]="registerForm" class="" action="">
+                  <div class="form-floating mb-3 mt-4">
+                    <input formControlName="username" name="username" type="text" class="form-control animate__animated animate__fadeInLeft" id="floatingInput" placeholder="Username">
+                    <label for="floatingInput">Username</label>
+                  </div>
+
+                  <div *ngIf="registerForm.get('username')?.errors&&registerForm.get('username')?.touched" class="text-danger">Invalid Username</div>
+
+                  <div class="form-floating mb-3">
+                    <input name="email" formControlName="email" type="email" class="form-control animate__animated animate__fadeInRight" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                  </div>
+
+                  <div *ngIf="registerForm.get('email')?.errors&&registerForm.get('email')?.touched" class="text-danger">Invalid Email</div>
+
+                  <div class="form-floating mb-3">
+                    <input formControlName="password" name="password" type="password" class="form-control animate__animated animate__fadeInLeft" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                  </div>
+
+                  <div *ngIf="registerForm.get('password')?.errors&&registerForm.get('password')?.touched" class="text-danger">Invalid Password</div>
+
+                  <div class="form-floating">
+                    <input formControlName="confirmPassword" name="confirmPassword" type="password" class="form-control animate__animated animate__fadeInRight" id="floatingPassword" placeholder="Confirm Password">
+                    <label for="floatingPassword">Confirm Password</label>
+                  </div>
+
+                  <div *ngIf="registerForm.get('confirmPassword')?.errors&&registerForm.get('confirmPassword')?.touched" class="text-danger">Invalid Password</div>
+                  <div style="font-size: 12px;" class="text-warning mt-2">*Please do not share password with anyone</div>
+
+                  <!-- buttons -->
+
+                  <div class="text-center mt-4 mb-1">
+                    <button id="button" type="submit" class="btn  fs-5"  >Create Account <i *ngIf="showIcon" class="fa-solid fa-user"></i>
+                      <div *ngIf="showSpinner" class="spinner-border spinner-border-sm" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                      </div>
+                      </button>
+                    <a id="button" class="btn  ms-4 fs-5" routerLink="">Cancel</a>
+                </div>
+                </form>
+               
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+       
+    </div>
+</div>

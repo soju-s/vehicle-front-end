@@ -1,0 +1,27 @@
+.navbar{
+    background-color:  #282d32;
+    top: 0;
+    opacity: 0.9;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+}
+#registerCard{
+transition: 0.5s;
+z-index: 10;
+}
+#registerCard:hover{
+    transform: scale(1.04);
+}
+#wheels{
+    font-family: 'Dancing Script', cursive;
+}
+#button{
+    background-color: #36393b;
+    color: white;
+    transition: 0.5s;
+}
+#button:hover{
+    transform: scale(1.02);
+    background-color: black;
+}

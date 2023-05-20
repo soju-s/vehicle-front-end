@@ -1,0 +1,262 @@
+<!-- navbar -->
+
+<nav *ngIf="!loginDisplay" class="navbar navbar-expand-lg ">
+  <div class="container-fluid">
+    <a class="navbar-brand ms-4" ><img src="https://i.pinimg.com/originals/ef/19/63/ef1963550bd12b567e853a36ff1c5078.png" alt="Logo" width="70" height="70" class="d-inline-block align-text-center"><span style="margin-left: 750px;" id="wheel" class="text-white  fs-1">  Wheels Doc <i class="fa-solid fa-wrench"></i></span>
+      </a>
+      
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div style="margin-left: 150px;" class="collapse navbar-collapse " id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active fs-5 text-white" aria-current="page" href="#overview">Overview</a>
+        </li>
+        <li class="nav-item ms-5">
+          <a class="nav-link active fs-5 text-white" href="#services">Services</a>
+        </li>
+        <li class="nav-item ms-5">
+          <a class="nav-link active fs-5 text-white" href="#working">Working</a>
+        </li>
+        <li class="nav-item ms-5">
+          <a class="nav-link active fs-5 text-white" href="#testimonial">Testimonial</a>
+        </li>
+        <li class="nav-item ms-5">
+          <a class="nav-link active fs-5 text-white" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- login -->
+
+
+
+<div style="height: 65vh; margin-top: 35px;" *ngIf="loginDisplay" class="container ">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <h1 class="text-center">Please Login to explore our benifits</h1>
+
+      <form (ngSubmit)="loginButtonClicked()" [formGroup]="loginForm" class="form mt-3">
+        <p id="heading">Login <i class="fa-solid fa-user"></i></p>
+        <div class="field">
+        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z"></path>
+        </svg>
+          <input name="username" formControlName="username" autocomplete="off" placeholder="Username" class="input-field" type="text">
+          
+        </div>
+        <div *ngIf="loginForm.get('username')?.errors&&loginForm.get('username')?.touched" class="text-danger">Invalid Username</div>
+        <div class="field">
+        <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
+        </svg>
+          <input name="password" formControlName="password" placeholder="Password" class="input-field" type="password">
+         
+        </div>
+        <div style="font-size: 10px;" class="text-warning text-center">*Please do not share password with anyone</div>
+        <div *ngIf="loginForm.get('password')?.errors&&loginForm.get('password')?.touched" class="text-danger">Invalid Password</div>
+        <div class="btn">
+        <button type="submit" class="button1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login <i *ngIf="!loginSpinner" class="fa-solid fa-user-lock"></i>
+          <div *ngIf="loginSpinner" class="spinner-border spinner-border-sm" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        <button routerLink='register' class="button2">Sign Up  </button>
+        </div>
+        <button (click)="loginCancelButton()" class="button3">Cancel</button>
+    </form>
+
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+  
+</div>
+
+
+<!-- content image-->
+
+
+<div *ngIf="!loginDisplay">
+  <div style="width: 100%; height: 600px;" id="spanner-image"  >
+    <!-- <img src="" alt=""> -->
+  </div>
+</div>
+
+
+<!-- welcome -->
+
+
+<div style="margin-top: 100px;" *ngIf="!loginDisplay" class="text-center">
+  <h1>Welcome to Wheels Doc <i class="fa-solid fa-wrench"></i></h1>
+</div>
+
+
+
+<!-- overview -->
+
+
+
+<div style="margin-top: 100px;" id="overview" *ngIf="!loginDisplay" class="container-fluid">
+<div style="margin-left: 100px; margin-right: 100px;" class="row">
+  
+  <div class="col-lg-6">
+    <!-- text -->
+<div  class="container mt-5">
+
+  <h1 class="text-center">About Us</h1>
+  
+  <p style="text-align: justify;" class="fs-5 mt-5">Wheels Doc is a  company that facilitates services for the automobile industry. We offer a 21st-century  experience for service of both cars and bikes in India. We are the only major Indian player with a completely online transactional model and offer one of the largest selection of automobiles amongst the major online players in India with over 1.15 million vehicles listed that includes both used and new cars and two-wheelers. We have expanded our platform to service for 1,151 cities in India. Our  platform,  provides support for booking service for both cars and bikes of any year manufacturer and company and encompasses every element of automobile parts buying for a vehicle, creating buying requirements, price discovery, booking, certification to purchase and financing and doorstep delivery.We provide doorstep delivery after the service.Client payment can be done both online and offline after the service is done.We provide complete details of service history and show damaged parts and bil so that client can verify the product is genuine.</p>
+</div>
+  </div>
+  <div class="col-lg-6">
+    
+<!-- image -->
+<div class=" mt-5">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div style="border-radius: 10%;" class="carousel-inner rounded border p-2">
+      <div class="carousel-item active">
+        <img style="border-radius: 10%;" height="450px" src="https://carewater.solutions/wp-content/uploads/2022/09/%D9%85%D8%BA%D8%A7%D8%B3%D9%84-%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img style="border-radius: 10%;"  height="450px" src="https://previews.123rf.com/images/artitwpd/artitwpd2003/artitwpd200300085/142410170-mechanic-show-the-car-checking-list-for-customer-with-blur-his-assistant-checking-red-car-focus-on.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img style="border-radius: 10%;" height="450px" src="https://media.istockphoto.com/id/1315800156/photo/automobile-mechanic-repairman-hands-repairing-a-car-engine-automotive-workshop-with-a-wrench.jpg?b=1&s=170667a&w=0&k=20&c=1mTACjOQsCywELazdevG3b9137Lfzh4ejXMFGMBBUi0=" class="d-block w-100" alt="...">
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+</div>
+
+
+
+<!-- services -->
+
+
+
+<div style="margin-top: 100px;" id="services" *ngIf="!loginDisplay" class="container-fluid ">
+  <h1 class="text-center">Services</h1>
+  <div class="row " style="margin-left: 100px; margin-right: 100px;">
+    <div  *ngFor="let services of allServices" class="col-lg-4 d-flex justify-content-center mb-5 mt-5">
+
+
+      <article  class="card">
+        <div class="temporary_text">
+            <img style="border-radius: 5%;" height="320px" width="100%" [src]="services.image" alt="">
+        </div>
+    <div class="card_content">
+        <span class="card_title"><h3>{{services.title}}</h3></span>
+            <span class="card_subtitle">Price: $ {{services.price}} </span>
+            <p class="card_description">{{services.description}}</p>
+        
+    </div>
+    </article>
+
+
+    </div>
+  </div>
+
+</div>
+
+<!-- button -->
+<div *ngIf="!loginDisplay" class="text-center mt-5 mb-5">
+  <button (click)="loginDisplayButton()" type="button" class="btn btn-dark fs-4">Book a Service</button>
+</div>
+
+
+
+
+<!-- how it works -->
+
+
+
+
+<div style="margin-top: 100px;" id="working" *ngIf="!loginDisplay">
+  <h1 class="container text-center">How it Works</h1>
+  <div style="display: flex; justify-content: space-between; align-items: center;" class="border container text-center p-3 mt-5">
+  
+    <div class="p-2 fs-4"  style="height: 150px; width: 100px; border: 1px solid; border-radius: 50%;">
+      <i class="fa-solid fa-car"></i>
+      <p >Vehicle Details</p>
+    </div>
+  <h2 >
+    <i class="fa-solid fa-arrow-right"></i>
+  </h2>
+    <div class="p-2 fs-4" style="height: 150px; width: 100px; border: 1px solid; border-radius: 50%;">
+      <i class="fa-solid fa-location-dot"></i>
+      <p>Select Location</p>
+    </div>
+    <h2>
+      <i class="fa-solid fa-arrow-right"></i>
+    </h2>
+    <div class="p-2 fs-4" style="height: 150px; width: 100px; border: 1px solid; border-radius: 50%;">
+      <i class="fa-sharp fa-regular fa-square-check"></i>
+      <p>Select Package</p>
+    </div>
+    <h2>
+      <i class="fa-solid fa-arrow-right"></i>
+    </h2>
+    <div class="p-2 fs-4" style="height: 150px; width: 100px; border: 1px solid; border-radius: 50%;">
+      <i class="fa-solid fa-handshake"></i>
+      <p>Book Service</p>
+    </div>
+    <h2>
+      <i class="fa-solid fa-arrow-right"></i>
+    </h2>
+    <div class="p-2 fs-4" style="height: 150px; width: 100px; border: 1px solid; border-radius: 50%;">
+      <i class="fa-solid fa-gears"></i>
+      <p>Avail service</p>
+    </div>
+    
+  </div>
+  
+</div>
+
+
+
+
+<!-- testimonial -->
+
+
+
+
+<div id="testimonial" class="mb-5" style="margin-top: 100px;" *ngIf="!loginDisplay">
+
+  <h1 class="container text-center">Testimonial</h1>
+
+  <div id="carouselExampleAutoplaying" class="carousel slide bg-dark container rounded mt-5" data-bs-ride="carousel">
+    <div style="height: 250px;" class="carousel-inner text-center p-2">
+      <div class="carousel-item active">
+        <img style="border-radius: 50%;" width="70px" height="80px" src="https://static01.nyt.com/images/2011/02/06/arts/RANDOM-1/RANDOM-1-jumbo.jpg?quality=75&auto=webp&disable=upscale" alt="">
+        <p class="d-block w-100 text-white mt-2 fs-5">I was really amazed that I could schedule car service online. I could see the exact package features and opt for the one which was perfect for me. No time wastage, no shady services. Top professionalism, top services.</p>
+      </div>
+      <div class="carousel-item">
+        <img style="border-radius: 50%;" width="70px" height="80px" src="https://www.ecok.edu/sites/default/files/2018-06/chris%20lane%20headshot.jpg" alt="">
+        <p class="d-block w-100 text-white mt-2 fs-5">Weekend is all I have to take a break from my work commitments. I like to chill at home and unwind. So, when I had to get my car serviced, I readily opted for Droom servicing online with which I could pre-plan the visit in consultation with the service provider and get it done easily.</p>
+      </div>
+      <div class="carousel-item">
+        <img style="border-radius: 50%;" width="70px" height="80px" src="https://images.ctfassets.net/xpbu77rkft4z/5CvXsWnXGxKglzTxevIQ0N/2fd5802f038b18ce1100869dc40a185b/Harris-Williams_Bio-Crop_0055_1715_KellyMcPhilliamy.jpg" alt="">
+        <p class="d-block w-100 text-white mt-2 fs-5">I was planning to go for a vacation but due to work was not able to get my car serviced beforehand. It was one of my office colleagues who suggested to try Droom servicing. The best part was that I did not have to visit the service provider rather they would call me first to schedule the visit. I got my car serviced on Wednesday morning and on Friday I was on my way to Manali to enjoy my vacation.</p>
+      </div>
+    </div>
+    <button class="carousel-control-prev mt-5" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next mt-5" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+ 
+</div>
+
+
+
